@@ -1,0 +1,15 @@
+c:\users\mateusz\documents\visual studio 2017\Projects\GraWarcaby\GraWarcaby\bin\Debug\GraWarcaby.exe.config
+c:\users\mateusz\documents\visual studio 2017\Projects\GraWarcaby\GraWarcaby\bin\Debug\GraWarcaby.exe
+c:\users\mateusz\documents\visual studio 2017\Projects\GraWarcaby\GraWarcaby\bin\Debug\GraWarcaby.pdb
+c:\users\mateusz\documents\visual studio 2017\Projects\GraWarcaby\GraWarcaby\obj\Debug\GraWarcaby.csprojResolveAssemblyReference.cache
+c:\users\mateusz\documents\visual studio 2017\Projects\GraWarcaby\GraWarcaby\obj\Debug\MainWindow.g.cs
+c:\users\mateusz\documents\visual studio 2017\Projects\GraWarcaby\GraWarcaby\obj\Debug\App.g.cs
+c:\users\mateusz\documents\visual studio 2017\Projects\GraWarcaby\GraWarcaby\obj\Debug\GraWarcaby_MarkupCompile.cache
+c:\users\mateusz\documents\visual studio 2017\Projects\GraWarcaby\GraWarcaby\obj\Debug\GraWarcaby_MarkupCompile.lref
+c:\users\mateusz\documents\visual studio 2017\Projects\GraWarcaby\GraWarcaby\obj\Debug\MainWindow.baml
+c:\users\mateusz\documents\visual studio 2017\Projects\GraWarcaby\GraWarcaby\obj\Debug\GraWarcaby.g.resources
+c:\users\mateusz\documents\visual studio 2017\Projects\GraWarcaby\GraWarcaby\obj\Debug\GraWarcaby.Properties.Resources.resources
+c:\users\mateusz\documents\visual studio 2017\Projects\GraWarcaby\GraWarcaby\obj\Debug\GraWarcaby.csproj.GenerateResource.Cache
+c:\users\mateusz\documents\visual studio 2017\Projects\GraWarcaby\GraWarcaby\obj\Debug\GraWarcaby.exe
+c:\users\mateusz\documents\visual studio 2017\Projects\GraWarcaby\GraWarcaby\obj\Debug\GraWarcaby.pdb
+C:\Users\Mateusz\Documents\Visual Studio 2017\Projects\GraWarcaby\GraWarcaby\obj\Debug\GraWarcaby.csproj.CoreCompileInputs.cache
