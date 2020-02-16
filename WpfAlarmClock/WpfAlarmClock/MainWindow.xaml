@@ -1,0 +1,45 @@
+﻿<Window x:Class="WpfAlarmClock.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfAlarmClock"
+        mc:Ignorable="d"
+        Title="Alarm Clock" Height="260" Width="500" ResizeMode="CanMinimize" Loaded="Window_Loaded" Closed="Window_Closed" >
+    <Window.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="Foreground" Value="Black" />
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="FontWeight" Value="DemiBold" />
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="138*"/>
+            <ColumnDefinition Width="109*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.504,1.5" StartPoint="0.504,0.03">
+                <GradientStop Color="#FF4E3870" Offset="0"/>
+                <GradientStop Color="#FFB0A6E0" Offset="0.567"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <TextBlock Margin="20,50,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="110" Height="40" Text="Actual Time:" Grid.Row="0" />
+        <TextBlock Name="actualTime" Margin="130,50,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="90" Height="40" Text="00:00:00" Grid.Row="0" />
+        <TextBlock Foreground="#FFFFD67F" Margin="77,50,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Width="90" Height="40" Text="Set alarm:" Grid.Row="0" Grid.ColumnSpan="2" />
+        <TextBlock Foreground="#FFFFD67F"  Name="actualAlarm" Margin="1.376,50,20,0" VerticalAlignment="Top" HorizontalAlignment="Center" Width="90" Height="40" Text="" Grid.Row="0" Grid.Column="1" />
+        <TextBlock Margin="20,31,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="110" Height="40" Text="Alarm Clock:" Grid.Row="1" />
+        <TextBlock Margin="140,1,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="50" Height="25" Text="Hour" Grid.Row="1" />
+        <ComboBox  Name="setHours" Width="100" Height="25" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="130,36,0,54" />
+        <TextBlock Margin="81,1,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Width="64" Height="25" Text="Minute" Grid.Row="1" Grid.ColumnSpan="2" />
+        <ComboBox Name="setMinutes" Width="100" Height="25" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="247,36,147,54" Grid.ColumnSpan="2" />
+        <Button Content="Save alarm" Grid.Row="1" Width="80" Height="30" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="15,0,0,9" Click="Button_Click" />
+        <Line X1="0" X2="500" Y1="110" Y2="110" StrokeThickness="2" Stroke="Black" Grid.Row="0" Grid.RowSpan="2" StrokeDashArray="1" Grid.ColumnSpan="2"  />
+        <Line X1="221" X2="221" Y1="0" Y2="109" StrokeThickness="2" Stroke="Black" Grid.Row="0" Grid.RowSpan="2" StrokeDashArray="1" Grid.ColumnSpan="2"  />
+        <Button Content="Stop alarm" Grid.Row="1" Width="80" Height="30" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="112,0,0,9" Click="Button_Click_1" />
+    </Grid>
+</Window>
