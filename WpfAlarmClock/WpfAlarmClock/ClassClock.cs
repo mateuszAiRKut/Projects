@@ -16,7 +16,7 @@ namespace WpfAlarmClock
 
         public ClassClock()
         {
-           
+            int zmienna = 50;
         }
 
         public void AddActionClock(MyDlegateTimer action) //Action
