@@ -3,43 +3,101 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WpfAlarmClock"
+        xmlns:local="clr-namespace:WpfAlarmClock" 
         mc:Ignorable="d"
-        Title="Alarm Clock" Height="260" Width="500" ResizeMode="CanMinimize" Loaded="Window_Loaded" Closed="Window_Closed" >
+        Title="Alarm Clock" Height="300" Width="500" ResizeMode="CanMinimize" StateChanged="Window_StateChanged" Loaded="Window_Loaded" Closed="Window_Closed" >
     <Window.Resources>
+        <LinearGradientBrush x:Key="MyGradientBrush" EndPoint="0.504,1.5" StartPoint="0.504,0.03">
+            <GradientStop Color="#FF4A2C78" Offset="0"/>
+            <GradientStop Color="#FF9B92C7" Offset="0.567"/>
+        </LinearGradientBrush>
         <Style TargetType="TextBlock">
             <Setter Property="Foreground" Value="Black" />
             <Setter Property="FontSize" Value="18" />
             <Setter Property="FontWeight" Value="DemiBold" />
         </Style>
+        <Style TargetType="Grid">
+            <Setter Property="Background" Value="{StaticResource MyGradientBrush}" />
+        </Style>
     </Window.Resources>
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="138*"/>
-            <ColumnDefinition Width="109*"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="1*" />
-            <RowDefinition Height="1*" />
-        </Grid.RowDefinitions>
-        <Grid.Background>
-            <LinearGradientBrush EndPoint="0.504,1.5" StartPoint="0.504,0.03">
-                <GradientStop Color="#FF4E3870" Offset="0"/>
-                <GradientStop Color="#FFB0A6E0" Offset="0.567"/>
-            </LinearGradientBrush>
-        </Grid.Background>
-        <TextBlock Margin="20,50,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="110" Height="40" Text="Actual Time:" Grid.Row="0" />
-        <TextBlock Name="actualTime" Margin="130,50,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="90" Height="40" Text="00:00:00" Grid.Row="0" />
-        <TextBlock Foreground="#FFFFD67F" Margin="77,50,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Width="90" Height="40" Text="Set alarm:" Grid.Row="0" Grid.ColumnSpan="2" />
-        <TextBlock Foreground="#FFFFD67F"  Name="actualAlarm" Margin="1.376,50,20,0" VerticalAlignment="Top" HorizontalAlignment="Center" Width="90" Height="40" Text="" Grid.Row="0" Grid.Column="1" />
-        <TextBlock Margin="20,31,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="110" Height="40" Text="Alarm Clock:" Grid.Row="1" />
-        <TextBlock Margin="140,1,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="50" Height="25" Text="Hour" Grid.Row="1" />
-        <ComboBox  Name="setHours" Width="100" Height="25" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="130,36,0,54" />
-        <TextBlock Margin="81,1,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Width="64" Height="25" Text="Minute" Grid.Row="1" Grid.ColumnSpan="2" />
-        <ComboBox Name="setMinutes" Width="100" Height="25" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="247,36,147,54" Grid.ColumnSpan="2" />
-        <Button Content="Save alarm" Grid.Row="1" Width="80" Height="30" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="15,0,0,9" Click="Button_Click" />
-        <Line X1="0" X2="500" Y1="110" Y2="110" StrokeThickness="2" Stroke="Black" Grid.Row="0" Grid.RowSpan="2" StrokeDashArray="1" Grid.ColumnSpan="2"  />
-        <Line X1="221" X2="221" Y1="0" Y2="109" StrokeThickness="2" Stroke="Black" Grid.Row="0" Grid.RowSpan="2" StrokeDashArray="1" Grid.ColumnSpan="2"  />
-        <Button Content="Stop alarm" Grid.Row="1" Width="80" Height="30" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="112,0,0,9" Click="Button_Click_1" />
-    </Grid>
+    <TabControl>
+        <TabItem>
+            <TabItem.Header>
+                <StackPanel Orientation="Horizontal">
+                    <Ellipse Fill="Blue" Width="5" Height="5" Margin="0,0,3,0" />
+                    <TextBlock Text="Main Window" FontSize="10" />
+                </StackPanel>
+            </TabItem.Header>
+            <Grid Name="gridMainWindow">
+                <TextBlock Margin="20,75,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="105" Height="30" Text="Actual Time:"/>
+                <TextBlock Name="actualTime" Margin="125,75,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="80" Height="30" Text="00:00:00" />
+                <TextBlock Margin="75,75,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Width="105" Height="30" Text="Alarm Clock:" />
+                <TextBlock Margin="276,75,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Width="90" Height="30" Text="{Binding Path=AlarmClock, UpdateSourceTrigger=PropertyChanged}" />
+                <Line X1="0" X2="500" Y1="150" Y2="150" StrokeThickness="2" Stroke="Black" StrokeDashArray="1"  />
+                <Line X1="221" X2="221" Y1="0" Y2="150" StrokeThickness="2" Stroke="Black" StrokeDashArray="1"  />
+                <local:UserControlToggleSwitch x:Name="buttonToggleSwitch"  MouseLeftButtonDownSwitch="UserControlToggleSwitch_MouseLeftButtonDownSwitch" Margin="5,0,0,5" HorizontalAlignment="Left" Height="44" VerticalAlignment="Bottom" Width="81"/>
+                <TextBlock Name="textToggleSwitchState" Margin="85,0,0,10" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="60" Height="30" Text="Off"/>
+            </Grid>
+        </TabItem>
+        <TabItem>
+            <TabItem.Header>
+                <StackPanel Orientation="Horizontal">
+                    <Ellipse Fill="Purple" Width="5" Height="5" Margin="0,0,3,0" />
+                    <TextBlock Text="Settings" FontSize="10" />
+                </StackPanel>
+            </TabItem.Header>
+            <Grid Name="gridSettings">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1.25*" />
+                    <RowDefinition Height="0.85*" />
+                    <RowDefinition Height="1.25*" />
+                </Grid.RowDefinitions>
+                <TextBlock Margin="10,10,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="105" Height="30" Text="Alarm Clock" Grid.Row="0"  />
+                <TextBlock Margin="35,40,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="40" Height="20" FontSize="14" Text="Hour" Grid.Row="0"/>
+                <ComboBox Name="setHours" SelectionChanged="setHoursAndMinutes_SelectionChanged" Width="100" Height="21" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,60,0,0" Grid.Row="0" />
+                <TextBlock Margin="155,40,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="54" Height="20" FontSize="14" Text="Minute" Grid.Row="0" />
+                <ComboBox Name="setMinutes" SelectionChanged="setHoursAndMinutes_SelectionChanged" Width="100" Height="21" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="135,60,0,0" Grid.Row="0" />
+                <Line X1="0" X2="250" Y1="93" Y2="93" StrokeThickness="2" Stroke="Black" StrokeDashArray="1" Grid.Row="0" Grid.RowSpan="2" />
+                <Line X1="250" X2="250" Y1="0" Y2="250" StrokeThickness="2" Stroke="Black" StrokeDashArray="1" Grid.Row="0" Grid.RowSpan="3" />
+                <CheckBox Name="SnoozeCheck" Unchecked="SnoozeCheck_Unchecked" Checked="SnoozeCheck_Checked" Margin="10,35,0,0" Grid.Row="1" Width="15" Height="15" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                <TextBlock Text="Snooze" Margin="10,5,0,0" Grid.Row="1" Width="65" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                <ComboBox Name="setSnooze" SelectionChanged="setSnooze_SelectionChanged" IsEnabled="False" Opacity=".5" Grid.Row="1" Width="100" Height="21" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="30,32,0,0" >
+                    <ComboBoxItem Content="2 min" />
+                    <ComboBoxItem Content="5 min" />
+                    <ComboBoxItem Content="10 min" />
+                </ComboBox>
+                <Line X1="0" X2="250" Y1="63" Y2="63" StrokeThickness="2" Stroke="Black" StrokeDashArray="1" Grid.Row="1" Grid.RowSpan="2" />
+                <TextBlock Text="Alarm Song" Margin="10,5,0,0" Grid.Row="2" Width="105" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                <TextBox x:Name="textAlarmSong" Margin="10,35,0,0" Text="{Binding Path=AlarmSong, UpdateSourceTrigger=PropertyChanged}" Width="175" Height="21" IsReadOnly="True" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.Row="2" />
+                <Button Margin="185,34,0,0"  Width="25" Height="22" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.Row="2" Click="Button_SearchAlarmSong">
+                    <Image Stretch="Fill" Source="folder.png" />
+                </Button>
+                <Slider Name="sliderVolume" Margin="10,55,0,0" Width="100" Height="20" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="2" ValueChanged="Slider_ValueChanged" Minimum="0" Maximum="100"/>
+                <TextBlock Margin="115,55,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" Width="55" Height="20" FontSize="14" Text="Volume:" Grid.Row="2"/>
+                <TextBlock Margin="172,55,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" Width="35" Height="20" FontSize="14" Text="{Binding Path=Volume, UpdateSourceTrigger=PropertyChanged}" Grid.Row="2"/>
+                <Button Grid.Row="2" Content="Save settings" Width="80" Height="30" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,20,9" Click="Button_SaveSettings"/>
+                <TextBlock Margin="250,10,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Width="145" Height="30" Text="List Alarm Clocks" Grid.Row="0"  />
+                <ListView Name="listAlarmCLock" Margin="240,40,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Row="0" Grid.RowSpan="3" Width="200" Height="140">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Alarm Clock" Width="110" >
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Margin="25,0,0,0" Text="{Binding Path=ValueAlarmClock}" FontSize="14" FontWeight="Bold" FontStyle="Oblique" Foreground="DarkBlue" />
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn Header="Count" Width="80" >
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Margin="25,0,0,0" Text="{Binding Path=ValueCount, UpdateSourceTrigger=PropertyChanged}" FontSize="14" FontWeight="Bold" FontStyle="Oblique" Foreground="DarkBlue" />
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </Grid>
+        </TabItem>
+    </TabControl>
 </Window>

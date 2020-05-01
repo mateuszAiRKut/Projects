@@ -1,23 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Threading;
+﻿using System.Threading;
 
 namespace WpfAlarmClock
 {
-    delegate void MyDlegateTimer();
-    class ClassClock
+    public delegate void MyDlegateTimer();
+    public class ClassClock
     {
         public ref byte Hour { get { return ref hour; } }
         public ref byte Minute { get { return ref minute; } }
         public ref byte Second { get { return ref second; } }
-
-        public ClassClock()
-        {
-            int zmienna = 10;
-        }
 
         public void AddActionClock(MyDlegateTimer action) //Action
         {
@@ -31,15 +21,14 @@ namespace WpfAlarmClock
             if(!isActive)
             {
                 isActive = true;
-                /*timer = new DispatcherTimer();
-                timer.Interval = TimeSpan.FromSeconds(1);
-                timer.Tick += timer_Tick;
-                timer.Start();*/
-                threadClock = new Thread(() => { delegateClock(); });
+                /*timerClock = new DispatcherTimer(); //sposob 2
+                timerClock.Interval = TimeSpan.FromSeconds(1);
+                timerClock.Tick += (s,e) => { delegateClock(); };
+                timerClock.Start();*/
+                threadClock = new Thread(() => { delegateClock(); }); // sposob 1
                 threadClock.Priority = ThreadPriority.Highest;
                 threadClock.Start();
             }
-
         }
 
         public void StopClock()
@@ -49,25 +38,11 @@ namespace WpfAlarmClock
             delegateClock = null;
         }
 
-        public override string ToString()
-        {
-            return base.ToString();
-        }
 
-        /*void timer_Tick(object sender, EventArgs e)
-        {
-            hour = (byte)DateTime.Now.Hour;
-            minute = (byte)DateTime.Now.Minute;
-            second = (byte)DateTime.Now.Second;
-            actualT.Clear();
-            actualT.Append(hour).Append(":").Append(minute).Append(":").Append(second);
-            actualTime.Text = actualT.ToString();
-        }*/
-
-        private MyDlegateTimer delegateClock;
-        private Thread threadClock;
+        public MyDlegateTimer delegateClock; //ta delegata jest opakowaniem dla ThreadStart
+        private Thread threadClock; // sposob 1
+        //private DispatcherTimer timerClock; //sposob 2
         private bool isActive;
         private byte hour, minute, second;
-        //private Action objectD; ThreadStart objectD;
     }
 }

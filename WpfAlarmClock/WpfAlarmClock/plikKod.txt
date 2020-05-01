@@ -1,0 +1,101 @@
+ public void UpdateListAlarmClockVersion2(in string valuesAlarmClock)
+        {
+            string alarmClock = null, count = null;
+            bool add;
+            byte resultCount;
+            for (byte i = 0; i < listAlarmClock.Count; i++)
+                listAlarmClock[i].Check = false;
+            foreach (string valueAlarm in valuesAlarmClock.Split(','))
+            {
+                add = true;
+                ClassParserSettings.SetLeftValueAndRightValue(valueAlarm, '/', leftValue: ref alarmClock, rightValue: ref count);
+                for (byte i = 0; i < listAlarmClock.Count; i++)
+                {
+                    if(listAlarmClock[i].ValueAlarmClock.Equals(alarmClock) && byte.TryParse(count, out resultCount))
+                    { 
+                        if (listAlarmClock[i].ValueCount != resultCount)
+                            listAlarmClock[i].ValueCount = resultCount;
+                        listAlarmClock[i].Check = true;
+                        add = false;
+                        break;
+                    }
+                }
+                if (add && byte.TryParse(count, out resultCount))
+                    listAlarmClock.Add(new ClassListAlarmClock { ValueAlarmClock = alarmClock, ValueCount = resultCount, Check = true });                   
+            }
+            listAlarmClock.RemoveAll((obj) => !obj.Check);
+            listAlarmClock.Sort((element1, element2) => element1.ValueCount.CompareTo(element2.ValueCount));
+        }
+
+        public void UpdateListAlarmClockVersion3(string valuesAlarmClock)
+        {
+            string valueAlarmCount = null, count = null, alarmClock = null;
+            byte resultCount;
+            bool comma;
+            for (int indexList = 0, indexSearch = 0, indexSearch2 = 0; indexList < listAlarmClock.Count; indexList++)
+            {
+                indexSearch = valuesAlarmClock.IndexOf(listAlarmClock[indexList].ValueAlarmClock);
+                comma = true;
+                if (indexSearch != -1)
+                {
+                    indexSearch2 = valuesAlarmClock.IndexOf(',', indexSearch);
+                    if (indexSearch2 == -1)
+                    {
+                        indexSearch2 = valuesAlarmClock.Length;
+                        comma = false;
+                    }
+                    valueAlarmCount = valuesAlarmClock.Substring(indexSearch, indexSearch2 - indexSearch);
+                    ClassParserSettings.SetLeftValueAndRightValue(valueAlarmCount, '/', leftValue: ref alarmClock, rightValue: ref count);
+                    byte.TryParse(count, out resultCount);
+                    if (listAlarmClock[indexList].ValueCount != resultCount)
+                        listAlarmClock[indexList].ValueCount = resultCount;
+                    valuesAlarmClock = valuesAlarmClock.Remove(indexSearch, indexSearch2 - indexSearch + (comma ? 1 : 0));
+                }
+                else
+                    listAlarmClock.RemoveAt(indexList--);
+            }
+            if(valuesAlarmClock != "")
+            {
+                valuesAlarmClock = valuesAlarmClock.Replace(',', ' ').Trim();
+                ClassParserSettings.SetLeftValueAndRightValue(valuesAlarmClock, '/', leftValue: ref alarmClock, rightValue: ref count);
+                byte.TryParse(count, out resultCount);
+                listAlarmClock.Add(new ClassListAlarmClock { ValueAlarmClock = alarmClock, ValueCount = resultCount });
+            }
+            listAlarmClock.Sort((element1, element2) => element1.ValueCount.CompareTo(element2.ValueCount));
+        }
+
+        public void UpdateListAlarmClockVersion4(string valuesAlarmClock)
+        {
+            string count = null, alarmClock = null;
+            byte resultCount;
+            bool remove;
+            for (int indexList = 0; indexList < listAlarmClock.Count; indexList++)
+            {
+                string[] array = valuesAlarmClock.Split(',');
+                remove = true;
+                for (int i = 0; i < array.Length; i++)
+                {
+                    if (array[i].Contains(listAlarmClock[indexList].ValueAlarmClock))
+                    {
+                        ClassParserSettings.SetLeftValueAndRightValue(array[i], '/', leftValue: ref alarmClock, rightValue: ref count);
+                        byte.TryParse(count, out resultCount);
+                        if (listAlarmClock[indexList].ValueCount != resultCount)
+                            listAlarmClock[indexList].ValueCount = resultCount;
+                        array[i] = "";
+                        remove = false;
+                        break;
+                    }
+                }
+                if (remove)
+                    listAlarmClock.RemoveAt(indexList--);
+                valuesAlarmClock = string.Join(",", array.Where((obj) => obj != ""));
+            }
+            if (valuesAlarmClock != "")
+            {
+                valuesAlarmClock = valuesAlarmClock.Replace(',', ' ').Trim();
+                ClassParserSettings.SetLeftValueAndRightValue(valuesAlarmClock, '/', leftValue: ref alarmClock, rightValue: ref count);
+                byte.TryParse(count, out resultCount);
+                listAlarmClock.Add(new ClassListAlarmClock { ValueAlarmClock = alarmClock, ValueCount = resultCount });
+            }
+            listAlarmClock.Sort((element1, element2) => element1.ValueCount.CompareTo(element2.ValueCount));
+        }

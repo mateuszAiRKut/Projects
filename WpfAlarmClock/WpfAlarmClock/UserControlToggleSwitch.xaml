@@ -1,0 +1,15 @@
+﻿<UserControl x:Class="WpfAlarmClock.UserControlToggleSwitch"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfAlarmClock"
+             mc:Ignorable="d" 
+             d:DesignHeight="120" d:DesignWidth="180" Name="btnToggleSwitch">
+    <Viewbox Margin="2">
+        <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Width="170" Height="110" Margin="0,0,0,0" Background="#FF9B92C7">
+            <Rectangle Fill="{Binding ElementName=btnToggleSwitch, Path=FillSwitch}" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="Black" StrokeThickness="3" Width="160" Height="85" Margin="0,0,0,0" RadiusX="40" RadiusY="40" />
+            <Ellipse Margin="{Binding ElementName=btnToggleSwitch, Path=MarginSwitch}"  MouseLeftButtonDown="Switch_MouseLeftButtonDown" HorizontalAlignment="Center" VerticalAlignment="Center" Fill="White" Width="77" Height="77" />
+        </Grid>
+    </Viewbox>
+</UserControl>
