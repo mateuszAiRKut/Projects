@@ -14,6 +14,7 @@ namespace WpfGamePuzzle
     {
         public byte CountRow { get; set; }
         public byte CountColumns { get; set; }
+
         public Border this[int index]
         {
             get
@@ -180,17 +181,10 @@ namespace WpfGamePuzzle
             if (elementsCorrectGame == null)
             {
                 int capacity = countAllElements / 8 + (countAllElements % 8 == 0 ? 0 : 1);
-                elementsCorrectGame = new List<byte>(capacity);
-                for (int i = 0; i < capacity; i++)
-                    elementsCorrectGame.Add(0);
-
-                /*elementsCorrectGame = new List<byte>(countAllElements);
-                for (int i = 0; i < countAllElements; i++)
-                    elementsCorrectGame.Add(0);*/
-                return;
+                elementsCorrectGame = new byte[capacity];
             }
-            for (int i = 0; i < elementsCorrectGame.Count; i++)
-                elementsCorrectGame[i] = 0;
+            for (int i = 0; i < elementsCorrectGame.Length; i++)
+                    elementsCorrectGame[i] = 0;
         }
 
         private void checkNeighbor(int element, List<byte> listN)
@@ -211,18 +205,17 @@ namespace WpfGamePuzzle
 
         public bool ConditionEndGame()
         {
-            for(int i = 0; i < elementsCorrectGame.Count - 1; i++)
+            for(int i = 0; i < elementsCorrectGame.Length - 1; i++)
             {
                 if (elementsCorrectGame[i] != 255)
                     return false;
             }
-            for(int i = countAllElements % 8, index = elementsCorrectGame.Count - 1; i >= 0; i--)
+            for(int i = countAllElements % 8, index = elementsCorrectGame.Length - 1; i >= 0; i--)
             {
                 if ((elementsCorrectGame[index] & (1 << i)) == 0)
                     return false;
             }
             return true;         
-            //return (elementsCorrectGame.Count == countAllElements);
         }
 
         public void ChangePositionElement(Border element1, Border element2)
@@ -248,11 +241,6 @@ namespace WpfGamePuzzle
                 elementsCorrectGame[indexElement / 8] |= (byte)(1 << indexElement);
             else if ((elementsCorrectGame[indexElement / 8] & (1 << indexElement)) == 1)
                 elementsCorrectGame[indexElement / 8] &= (byte)(~(1 << indexElement));
-
-            /*if (elementsGame[indexElement].Tag.Equals(indexElement.ToString()))
-                elementsCorrectGame.Add((byte)indexElement);
-            else if (elementsCorrectGame.Contains((byte)indexElement))
-                elementsCorrectGame.Remove((byte)indexElement);*/
         }
 
         private void searchIdenticalFragmentImage()
@@ -276,7 +264,7 @@ namespace WpfGamePuzzle
 
         private Border[] elementsGame;
         private Dictionary<byte, List<byte>> mapIdenticalFragmentImage;
-        private List<byte> elementsCorrectGame;
+        private byte[] elementsCorrectGame; 
         private int countAllElements;
 
     }

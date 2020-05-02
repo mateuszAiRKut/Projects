@@ -1,0 +1,15 @@
+C:\Users\Mateusz\source\repos\WpfGamePuzzle\WpfGamePuzzle\bin\Debug\WpfGamePuzzle.exe.config
+C:\Users\Mateusz\source\repos\WpfGamePuzzle\WpfGamePuzzle\bin\Debug\WpfGamePuzzle.exe
+C:\Users\Mateusz\source\repos\WpfGamePuzzle\WpfGamePuzzle\bin\Debug\WpfGamePuzzle.pdb
+C:\Users\Mateusz\source\repos\WpfGamePuzzle\WpfGamePuzzle\obj\Debug\WpfGamePuzzle.csprojAssemblyReference.cache
+C:\Users\Mateusz\source\repos\WpfGamePuzzle\WpfGamePuzzle\obj\Debug\MainWindow.g.cs
+C:\Users\Mateusz\source\repos\WpfGamePuzzle\WpfGamePuzzle\obj\Debug\App.g.cs
+C:\Users\Mateusz\source\repos\WpfGamePuzzle\WpfGamePuzzle\obj\Debug\WpfGamePuzzle_MarkupCompile.cache
+C:\Users\Mateusz\source\repos\WpfGamePuzzle\WpfGamePuzzle\obj\Debug\WpfGamePuzzle_MarkupCompile.lref
+C:\Users\Mateusz\source\repos\WpfGamePuzzle\WpfGamePuzzle\obj\Debug\MainWindow.baml
+C:\Users\Mateusz\source\repos\WpfGamePuzzle\WpfGamePuzzle\obj\Debug\WpfGamePuzzle.g.resources
+C:\Users\Mateusz\source\repos\WpfGamePuzzle\WpfGamePuzzle\obj\Debug\WpfGamePuzzle.Properties.Resources.resources
+C:\Users\Mateusz\source\repos\WpfGamePuzzle\WpfGamePuzzle\obj\Debug\WpfGamePuzzle.csproj.GenerateResource.cache
+C:\Users\Mateusz\source\repos\WpfGamePuzzle\WpfGamePuzzle\obj\Debug\WpfGamePuzzle.exe
+C:\Users\Mateusz\source\repos\WpfGamePuzzle\WpfGamePuzzle\obj\Debug\WpfGamePuzzle.pdb
+C:\Users\Mateusz\source\repos\WpfGamePuzzle\WpfGamePuzzle\obj\Debug\WpfGamePuzzle.csproj.CoreCompileInputs.cache
