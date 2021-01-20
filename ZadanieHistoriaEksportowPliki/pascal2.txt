@@ -10,11 +10,11 @@ Write your code in this editor and press "Run" button to execute it.
 program Sort;
 
 const
-    sizeArray = 16;
+    sizeArray = 18;
 type
    myArray = array [ 0..sizeArray] of integer;
 var
-   arrayInit, arraySort : myArray;
+   arrayInit, arraySort, mSort : myArray;
    randomValue : integer;
 
 
@@ -137,7 +137,7 @@ var
 begin
     if (left < right) then
     begin
-        index := round((left + right) / 2);
+        index := trunc((left + right) / 2);
         pivot := a[index];
         pointerL := left;
         pointerR := right;
@@ -211,7 +211,7 @@ begin
     end;
     if (result = true) then
     begin
-        Writeln('Searched element ', element, ' on position ', position, ' count from 0');
+        Writeln('Searched element ', element, ' on position ', position, ' in tabInit count from 0');
     end
     else
     begin
@@ -219,17 +219,75 @@ begin
     end;
 end;
 
+
+procedure merge(var a: myArray; left, middle, right: integer);
+var
+    i, positionL, positionR, positionIndex : integer;
+begin
+    positionL :=left;
+    positionR := middle + 1;
+    positionIndex := positionL;
+    for i := left to right do
+    begin
+        mSort[i] := a[i];
+    end;
+    while ((positionL <= middle) and (positionR <= right)) do
+    begin
+        if (mSort[positionL] <= mSort[positionR]) then
+        begin
+            a[positionIndex] := mSort[positionL];
+            positionIndex := positionIndex + 1;
+            positionL := positionL + 1;
+        end
+        else
+        begin
+            a[positionIndex] := mSort[positionR];
+            positionIndex := positionIndex + 1;
+            positionR := positionR + 1;
+        end
+    end;
+    
+    while (positionL <= middle) do
+    begin
+        a[positionIndex] := mSort[positionL];
+        positionIndex := positionIndex + 1;
+        positionL := positionL + 1;
+    end;
+    
+    //while (positionR <= right) do
+    //begin
+        //a[positionIndex] := mSort[positionR];
+        //positionIndex := positionIndex + 1;
+        //positionR := positionR + 1;
+    //end
+end;
+
+procedure mergeSort(var a: myArray; left, right: integer);
+var
+    middle : integer;
+begin
+if (left < right) then
+begin
+    middle := trunc((left + right) / 2);
+    mergeSort(a, left, middle);
+    mergeSort(a, middle + 1, right);
+    merge(a, left, middle, right);
+end
+end;
+
 begin
   setArray(arrayInit, sizeArray);
   displayArray(arrayInit, sizeArray);
   checkSortArray(arrayInit, sizeArray);
   copyArray(arraySort, arrayInit, sizeArray);
-  writeln();
+  //writeln();
   //selectSort(arraySort, sizeArray);
   //insertSort(arraySort, sizeArray);
   //quickSort(arraySort, sizeArray, 0, sizeArray);
-  quickSortVersion2(arraySort, sizeArray, 0, sizeArray);
+  //quickSortVersion2(arraySort, sizeArray, 0, sizeArray);
+  mergeSort(arraySort, 0, sizeArray);
   displayArray(arraySort, sizeArray);
   checkSortArray(arraySort, sizeArray);
   searchElementInArray(arrayInit, arraySort, sizeArray);
 end.
+
