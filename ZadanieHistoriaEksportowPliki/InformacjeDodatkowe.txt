@@ -1,7 +1,0 @@
-Baza   - MIcrosoft SQL Server / Microsoft SQL Sqerver Management Studio
-Visual - 
-	add reference - System.Configuration
-	NuGet - Dapper
-	wersja - Visual Studio 2019
-	aplikacja - WindowsFormsApp
-	Platforma - .NET Framework 4.7.2
