@@ -1,0 +1,22 @@
+{
+  "runtimeOptions": {
+    "tfm": "net6.0",
+    "frameworks": [
+      {
+        "name": "Microsoft.NETCore.App",
+        "version": "6.0.0"
+      },
+      {
+        "name": "Microsoft.WindowsDesktop.App",
+        "version": "6.0.0"
+      }
+    ],
+    "additionalProbingPaths": [
+      "C:\\Users\\mateu\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\mateu\\.nuget\\packages"
+    ],
+    "configProperties": {
+      "Microsoft.NETCore.DotNetHostPolicy.SetAppPaths": true
+    }
+  }
+}
