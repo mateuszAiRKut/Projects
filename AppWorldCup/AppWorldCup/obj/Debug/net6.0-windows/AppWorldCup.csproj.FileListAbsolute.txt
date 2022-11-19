@@ -4,7 +4,6 @@ C:\Users\mateu\source\Git\Projects\AppWorldCup\AppWorldCup\bin\Debug\net6.0-wind
 C:\Users\mateu\source\Git\Projects\AppWorldCup\AppWorldCup\bin\Debug\net6.0-windows\AppWorldCup.dll
 C:\Users\mateu\source\Git\Projects\AppWorldCup\AppWorldCup\bin\Debug\net6.0-windows\ref\AppWorldCup.dll
 C:\Users\mateu\source\Git\Projects\AppWorldCup\AppWorldCup\bin\Debug\net6.0-windows\AppWorldCup.pdb
-C:\Users\mateu\source\Git\Projects\AppWorldCup\AppWorldCup\obj\Debug\net6.0-windows\AppWorldCup.csproj.AssemblyReference.cache
 C:\Users\mateu\source\Git\Projects\AppWorldCup\AppWorldCup\obj\Debug\net6.0-windows\MainWindow.g.cs
 C:\Users\mateu\source\Git\Projects\AppWorldCup\AppWorldCup\obj\Debug\net6.0-windows\App.g.cs
 C:\Users\mateu\source\Git\Projects\AppWorldCup\AppWorldCup\obj\Debug\net6.0-windows\AppWorldCup_MarkupCompile.cache
@@ -19,3 +18,9 @@ C:\Users\mateu\source\Git\Projects\AppWorldCup\AppWorldCup\obj\Debug\net6.0-wind
 C:\Users\mateu\source\Git\Projects\AppWorldCup\AppWorldCup\obj\Debug\net6.0-windows\ref\AppWorldCup.dll
 C:\Users\mateu\source\Git\Projects\AppWorldCup\AppWorldCup\obj\Debug\net6.0-windows\AppWorldCup.pdb
 C:\Users\mateu\source\Git\Projects\AppWorldCup\AppWorldCup\obj\Debug\net6.0-windows\AppWorldCup.genruntimeconfig.cache
+C:\Users\mateu\source\Git\Projects\AppWorldCup\AppWorldCup\obj\Debug\net6.0-windows\Widok\kontrolkaUzytkownika.g.cs
+C:\Users\mateu\source\Git\Projects\AppWorldCup\AppWorldCup\obj\Debug\net6.0-windows\Widok\kontrolkaUzytkownika.baml
+C:\Users\mateu\source\Git\Projects\AppWorldCup\AppWorldCup\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
+C:\Users\mateu\source\Git\Projects\AppWorldCup\AppWorldCup\bin\Debug\net6.0-windows\LightInject.dll
+C:\Users\mateu\source\Git\Projects\AppWorldCup\AppWorldCup\obj\Debug\net6.0-windows\AppWorldCup.csproj.AssemblyReference.cache
+C:\Users\mateu\source\Git\Projects\AppWorldCup\AppWorldCup\obj\Debug\net6.0-windows\AppWorldCup.csproj.CopyComplete
