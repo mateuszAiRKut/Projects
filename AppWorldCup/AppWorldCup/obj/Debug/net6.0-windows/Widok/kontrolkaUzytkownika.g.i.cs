@@ -93,7 +93,7 @@ namespace AppWorldCup.Widok {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/AppWorldCup;component/widok/kontrolkauzytkownika.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/AppWorldCup;V1.0.0.0;component/widok/kontrolkauzytkownika.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Widok\kontrolkaUzytkownika.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
