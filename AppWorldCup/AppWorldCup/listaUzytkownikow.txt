@@ -1,3 +1,2 @@
 mateusz #FF9400D3 0 1
 marek #FFFFD700 0 2
-darek #FFF08080 0 3
