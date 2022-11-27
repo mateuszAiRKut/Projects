@@ -123,7 +123,7 @@ namespace AppWorldCup.Widok
 
             try
             {
-                repozytorium.AktualizujPlik("mateuszAirKut", "Projects", "AppWorldCup/AppWorldCup/listaUzytkownikow.txt", sb.ToString(), "aktualizacja listy uzytkownikow", "master");
+                repozytorium.AktualizujPlik("mateuszAirKut", "Projects", "AppWorldCup/AppWorldCup/listaUzytkownikow.txt", sb.ToString(), "aktualizacja listy uzytkownikow", "master2");
             } 
             catch (Exception ex)
             {
