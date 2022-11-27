@@ -51,9 +51,9 @@ namespace AppWorldCup.Widok
         private async void AktualizujListeUzytkownikow()
         {
             repozytorium = ManagerKlas.InstancjaManagerRepozytorium as ManagerRepozytorium;
-            string lista = await repozytorium.PobierzZawartoscPliku("mateuszAirKut", "Projects", "AppWorldCup/AppWorldCup/listaUzytkownikow.txt", "master");
+            string lista = await repozytorium.PobierzZawartoscPliku("mateuszAirKut", "Projects", "AppWorldCup/AppWorldCup/listaUzytkownikow.txt", "master2");
 
-            foreach (var linia in lista.Split(Environment.NewLine))
+            foreach (var linia in lista.Split(new string[] { "\r\n", "\r", "\n" }, StringSplitOptions.None))
             {
                 var dane = linia.Split(' ');
 
