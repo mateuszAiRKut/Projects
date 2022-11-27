@@ -24,3 +24,6 @@ C:\Users\mateu\source\Git\Projects\AppWorldCup\AppWorldCup\obj\Debug\net6.0-wind
 C:\Users\mateu\source\Git\Projects\AppWorldCup\AppWorldCup\bin\Debug\net6.0-windows\LightInject.dll
 C:\Users\mateu\source\Git\Projects\AppWorldCup\AppWorldCup\obj\Debug\net6.0-windows\AppWorldCup.csproj.AssemblyReference.cache
 C:\Users\mateu\source\Git\Projects\AppWorldCup\AppWorldCup\obj\Debug\net6.0-windows\AppWorldCup.csproj.CopyComplete
+C:\Users\mateu\source\Git\Projects\AppWorldCup\AppWorldCup\bin\Debug\net6.0-windows\Octokit.dll
+C:\Users\mateu\source\Git\Projects\AppWorldCup\AppWorldCup\obj\Debug\net6.0-windows\Widok\kontrolkaGrupa.g.cs
+C:\Users\mateu\source\Git\Projects\AppWorldCup\AppWorldCup\obj\Debug\net6.0-windows\Widok\kontrolkaGrupa.baml

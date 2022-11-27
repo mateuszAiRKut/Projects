@@ -10,6 +10,15 @@
         "runtime": {
           "lib/net6.0/LightInject.dll": {}
         }
+      },
+      "Octokit/4.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Octokit.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Octokit.dll": {}
+        }
       }
     }
   },
@@ -36,11 +45,26 @@
         "lightinject.6.6.1.nupkg.sha512",
         "lightinject.nuspec"
       ]
+    },
+    "Octokit/4.0.1": {
+      "sha512": "fwTQ/mEyvRA+LPvEApqziBR1Qvo6+AshUBQTZqXM5RMuJaSBzW3PGrG33HA+zOaq+71E4+EmN7kjCDBc+Ra3WQ==",
+      "type": "package",
+      "path": "octokit/4.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/Octokit.dll",
+        "lib/netstandard2.0/Octokit.xml",
+        "octokit.4.0.1.nupkg.sha512",
+        "octokit.nuspec",
+        "octokit.png"
+      ]
     }
   },
   "projectFileDependencyGroups": {
     "net6.0-windows7.0": [
-      "LightInject >= 6.6.1"
+      "LightInject >= 6.6.1",
+      "Octokit >= 4.0.1"
     ]
   },
   "packageFolders": {
@@ -85,6 +109,10 @@
           "LightInject": {
             "target": "Package",
             "version": "[6.6.1, )"
+          },
+          "Octokit": {
+            "target": "Package",
+            "version": "[4.0.1, )"
           }
         },
         "imports": [

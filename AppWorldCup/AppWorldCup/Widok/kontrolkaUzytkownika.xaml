@@ -41,6 +41,9 @@
                 <TextBlock Text="Usuń" FontSize="14" FontWeight="Bold" />
             </Button.Content>
         </Button>
+        <Button Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Bottom" x:Name="btnZapisz" IsEnabled="False" HorizontalAlignment="Left" Margin="230,0,0,20" Width="100" Height="25" Click="btnZapisz_Click" >
+            <TextBlock Text="Zapisz" FontSize="14" FontWeight="Bold" />
+        </Button>
         <TextBlock VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,50" Height="20" Text="Lista użytkowników" Grid.Column="1" FontSize="15" />
         <DataGrid SelectedCellsChanged="listaUzytkownikow_SelectedCellsChanged" SelectedItem="{Binding WybranyUzytkownik}" ItemsSource="{Binding ListaUzytkownikow}" Grid.Column="1" Name="listaUzytkownikow" AutoGenerateColumns="False" Margin="10,80,129,122">
             <DataGrid.RowStyle>
