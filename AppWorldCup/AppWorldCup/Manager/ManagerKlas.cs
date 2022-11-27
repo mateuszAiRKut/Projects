@@ -14,7 +14,7 @@ namespace AppWorldCup.Manager
         private static ManagerKlas managerKlas;
         private ServiceContainer kontener;
         private static string nazwa = "AppWorldCup";
-        private static string token = "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";
+        private static string token = "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";
 
         private ManagerKlas()
         {
