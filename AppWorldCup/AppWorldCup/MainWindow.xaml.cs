@@ -1,7 +1,5 @@
-﻿using AppWorldCup.Manager;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,7 +13,6 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-
 namespace AppWorldCup
 {
     /// <summary>
@@ -23,22 +20,9 @@ namespace AppWorldCup
     /// </summary>
     public partial class MainWindow : Window
     {
-        private string _grupa;
-        public ObservableCollection<string> Grupy { get; set; } = new ObservableCollection<string>() {"Grupa A", "Grupa B", "Grupa C", "Grupa D", "Grupa E", "Grupa F", "Grupa G", "Grupa H" };
-        public string Grupa
-        {
-            get => _grupa;
-            set
-            {
-                _grupa = value;
-                aktywnaGrupa.WybranaGrupa = value;
-            }
-        }
-
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = this;
         }
     }
 }

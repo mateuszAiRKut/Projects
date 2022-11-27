@@ -15,21 +15,6 @@
                         <TextBlock Text="Tabele i wyniki" FontSize="14" FontWeight="Bold" FontStyle="Italic" />
                     </StackPanel>
                 </TabItem.Header>
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="1*" />
-                        <RowDefinition Height="3*" />
-                        <RowDefinition Height="3*" />
-                    </Grid.RowDefinitions>
-                    <StackPanel Orientation="Horizontal" Grid.Row="0">
-                        <TextBlock Margin="10,10" Text="Grupa" FontSize="14" FontWeight="Bold" FontStyle="Italic"/>
-                        <ComboBox Margin="5,0,0,10" SelectedItem="{Binding Grupa}" ItemsSource="{Binding Grupy}" Height="25" Width="100">
-                        </ComboBox>
-                    </StackPanel>
-                    <StackPanel Grid.Row="1">
-                        <uc:kontrolkaGrupa x:Name="aktywnaGrupa" Height="150" />
-                    </StackPanel>
-                </Grid>
             </TabItem>
             <TabItem>
                 <TabItem.Header>

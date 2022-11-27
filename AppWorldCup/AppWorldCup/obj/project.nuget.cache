@@ -1,11 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "ispc7I4AAfuVi9zmoUKfMnIfCwH9j+enzfX/V1K5RxzU3r+sJ38iIRfOBnjm0Gi2cppIfIUa3/aFWfB3WxEjTw==",
+  "dgSpecHash": "1qi9Cjt7M7Ns+PQ5u9zlerYyHTvNWVDtXXGlrfxR2Z5+ZJi0OLB102c7ZJVJU4nxrCksUSS6+Zo6wuneDQ9oSg==",
   "success": true,
   "projectFilePath": "C:\\Users\\mateu\\source\\Git\\Projects\\AppWorldCup\\AppWorldCup\\AppWorldCup.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\mateu\\.nuget\\packages\\lightinject\\6.6.1\\lightinject.6.6.1.nupkg.sha512",
-    "C:\\Users\\mateu\\.nuget\\packages\\octokit\\4.0.1\\octokit.4.0.1.nupkg.sha512"
+    "C:\\Users\\mateu\\.nuget\\packages\\lightinject\\6.6.1\\lightinject.6.6.1.nupkg.sha512"
   ],
   "logs": []
 }

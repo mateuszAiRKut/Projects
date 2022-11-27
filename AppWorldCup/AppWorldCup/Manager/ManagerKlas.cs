@@ -13,16 +13,12 @@ namespace AppWorldCup.Manager
     {
         private static ManagerKlas managerKlas;
         private ServiceContainer kontener;
-        private static string nazwa = "AppWorldCup";
-        private static string token = "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";
 
         private ManagerKlas()
         {
             kontener = new ServiceContainer();
 
             kontener.Register<IWyborKoloru, WyborKoloru>();
-            kontener.Register<string, string, IRepozytorium>((factory, n, t) => new ManagerRepozytorium(n, t));
-            kontener.Register<ISerwis, ManagerSerwis>();
         }
 
         public static ManagerKlas DajObiektManagera()
@@ -37,8 +33,6 @@ namespace AppWorldCup.Manager
 
         public static IWyborKoloru InstancjaWyborKoloru => DajObiektManagera().kontener.GetInstance<IWyborKoloru>();
 
-        public static IRepozytorium InstancjaManagerRepozytorium => DajObiektManagera().kontener.GetInstance<string, string, IRepozytorium>(nazwa, token);
 
-        public static ISerwis InstancjaManagerSerwis => DajObiektManagera().kontener.GetInstance<ISerwis>();
     }
 }

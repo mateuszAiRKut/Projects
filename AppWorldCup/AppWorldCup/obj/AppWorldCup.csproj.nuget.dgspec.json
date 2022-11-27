@@ -43,10 +43,6 @@
             "LightInject": {
               "target": "Package",
               "version": "[6.6.1, )"
-            },
-            "Octokit": {
-              "target": "Package",
-              "version": "[4.0.1, )"
             }
           },
           "imports": [
