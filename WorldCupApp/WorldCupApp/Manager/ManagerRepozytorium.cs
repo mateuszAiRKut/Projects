@@ -30,8 +30,8 @@ namespace WorldCupApp.Manager
                 await githubKlient.Repository.Content.UpdateFile(owner, nazwaRepo, sciezkaPliku, new UpdateFileRequest(komentarz, zawartoscPliku, szczegolyPliku.First().Sha));
             }
 
-            string sciezkaPlikuLokalna = Path.GetFullPath(Path.Combine(Environment.CurrentDirectory, @"..\..\..\", sciezkaPliku.Split('/').Last()));
-            await File.WriteAllTextAsync(sciezkaPlikuLokalna, zawartoscPliku);
+            //string sciezkaPlikuLokalna = Path.GetFullPath(Path.Combine(Environment.CurrentDirectory, @"..\..\..\", sciezkaPliku.Split('/').Last()));
+            //await File.WriteAllTextAsync(sciezkaPlikuLokalna, zawartoscPliku);
         }
 
         public async Task<string> PobierzZawartoscPliku(string owner, string nazwaRepo, string sciezkaPliku, string galaz)
