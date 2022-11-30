@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -104,6 +106,12 @@ namespace WorldCupApp.Widok
             if (WybranyUzytkownik != null)
             {
                 ListaUzytkownikow.Remove(WybranyUzytkownik);
+
+                for (int i = 0; i < ListaUzytkownikow.Count; i++)
+                {
+                    ListaUzytkownikow[i].Numer = (i + 1);
+                }
+
                 btnUsun.IsEnabled = false;
 
                 if (ListaUzytkownikow.Count == 0)
@@ -141,14 +149,30 @@ namespace WorldCupApp.Widok
         }
     }
 
-    public class Uzytkownik
+    public class Uzytkownik : INotifyPropertyChanged
     {
+        private int _numer;
         public string Login { get; set; }
         public Brush Kolor { get; set; }
         public int Punkty { get; set; }
-        public int Numer { get; set; }
+        public int Numer
+        {
+            get => _numer;
+            set
+            {
+                _numer = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public event PropertyChangedEventHandler? PropertyChanged;
 
         public override string ToString() => $"{Login} {Kolor} {Punkty} {Numer}";
         public static implicit operator string(Uzytkownik u) => u.ToString();
+
+        protected void OnPropertyChanged([CallerMemberName] string name = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }
     }
 }
